@@ -1,0 +1,54 @@
+{
+  "name": "bible-verse-parser",
+  "version": "1.0.3",
+  "description": "Identifies references to biblical passages in a string",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "prepublishOnly": "tsc",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phillipb/bible-verse-parser.git"
+  },
+  "keywords": [
+    "bible",
+    "osis"
+  ],
+  "author": "Phillip Burch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phillipb/bible-verse-parser/issues"
+  },
+  "homepage": "https://github.com/phillipb/bible-verse-parser#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/jest": "^24.0.20",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "typescript": "^3.6.4"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testPathIgnorePatterns": ["/build/"],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "./tsconfig.json"
+      }
+    }
+  },
+  "dependencies": {
+    "ts-jest": "^24.1.0"
+  }
+}

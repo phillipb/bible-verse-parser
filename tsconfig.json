@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es6",
+      "es2017",
+      "dom",
+      "es2019.string"
+    ],
+    "target": "es5",
+    "outDir": "build",
+    "declaration": true,
+    "module": "commonjs"
+  },
+  "include": ["./lib"],
+  "exclude": ["./build/**/*"]
+}

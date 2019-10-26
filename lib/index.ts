@@ -20,14 +20,12 @@ const OSIS_INGORED_CHARS = /[.|\s]/u
 const ALLOWED_CHARS = /[0|:|.|1|2|3|4|5|6|7|8|9|\s]/u
 const RANGE_DELIMITER_REGEX = /([-|,|;])/
 
-export class Parser {
-  static parse(text: string) {
-    text = sanitizeText(text);
-    // Always look for the longer text first, so you can get the complete reference 1 John vs John
-    // TODO: Length can be a bit fuzzy because of regex
-    const bookNameHits = getBookHits(text).slice().sort((a , b) => a.startIdx - b.startIdx);
-    return buildHits(text, bookNameHits);
-  }
+export const parseText = (text: string) => {
+  text = sanitizeText(text);
+  // Always look for the longer text first, so you can get the complete reference 1 John vs John
+  // TODO: Length can be a bit fuzzy because of regex
+  const bookNameHits = getBookHits(text).slice().sort((a , b) => a.startIdx - b.startIdx);
+  return buildHits(text, bookNameHits);
 }
 
 const buildHits = (text: string, potentialHits: Hit[]) => {
