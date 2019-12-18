@@ -93,6 +93,7 @@ describe('Works in spanish', () => {
     expect(Parser.parseText("Mateo 1")[0].osis).toBe('Matt.1');
   });
 });
+
 describe('Handles Whitespace', () => {
   test("Line endings", () => {
     expect(Parser.parseText(`1Pedro${String.fromCharCode(160)}1`)[0].osis).toBe('1Pet.1');
@@ -155,5 +156,16 @@ describe('Handles commas', () => {
   test('Parses gen.1.1 properly', () => {
     expect(Parser.parseText('gen.1.1')[0].osis).toBe('Gen.1.1')
   })
-
 });
+
+describe('Partial Verses', () => {
+  test('trailing colon Luke 16:10: 16-10', () => {
+    const hits = Parser.parseText('Luke 16:10:');
+    expect(hits[0].osis).toBe('Luke.16.10')
+    expect(hits.length).toBe(1)
+  })
+
+  test('trailing colon Luke 16:10:', () => {
+    expect(Parser.parseText('Luke 16:10:')[0].osis).toBe('Luke.16.10')
+  })
+})
