@@ -1,6 +1,6 @@
 {
   "name": "bible-verse-parser",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Identifies references to biblical passages in a string",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
