@@ -148,6 +148,11 @@ describe('Handles commas', () => {
     expect(parsed[0].osis).toBe('1Pet.1.1,1Pet.2.2');
   });
 
+  test.skip('1 Kgs 18:19, 1 Kgs 18:20, 1 Kgs 18:42, 2 Kgs 2:25, 2 Kgs 4:25', () => {
+    console.log(`Parser.parseText('1 Kgs 18:19, 1 Kgs 18:20, 1 Kgs 18:42, 2 Kgs 2:25, 2 Kgs 4:25')`, Parser.parseText('1 Kgs 18:19, 1 Kgs 18:20, 1 Kgs 18:42, 2 Kgs 2:25, 2 Kgs 4:25'));
+    expect(Parser.parseText('1 Kgs 18:19, 1 Kgs 18:20, 1 Kgs 18:42, 2 Kgs 2:25, 2 Kgs 4:25').length).not.toBe(0)
+  })
+
   test("handles more than one comma ", () => {
     const parsed = Parser.parseText(`1 peter 1:1,2,2:3`);
     expect(parsed[0].osis).toBe('1Pet.1.1,1Pet.1.2,1Pet.2.3');
@@ -168,4 +173,6 @@ describe('Partial Verses', () => {
   test('trailing colon Luke 16:10:', () => {
     expect(Parser.parseText('Luke 16:10:')[0].osis).toBe('Luke.16.10')
   })
+
+
 })

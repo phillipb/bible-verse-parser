@@ -130,8 +130,8 @@ const getBookHits = (text: string) => {
 }
 
 const normalizeHits = (hit: Hit) => {
-  // TODO: ************** FIlter out intersecting hits **************
   const parts = hit.osis.split('.').filter(p => !!p);
+  // console.log('----- parts ------', parts);
   if (hit.osis[hit.osis.length - 1] === '.' ) {
     if (parts.length === 1) {
       // DOn't match books only
