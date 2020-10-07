@@ -131,7 +131,6 @@ const getBookHits = (text: string) => {
 
 const normalizeHits = (hit: Hit) => {
   const parts = hit.osis.split('.').filter(p => !!p);
-  // console.log('----- parts ------', parts);
   if (hit.osis[hit.osis.length - 1] === '.' ) {
     if (parts.length === 1) {
       // DOn't match books only
@@ -140,7 +139,7 @@ const normalizeHits = (hit: Hit) => {
   }
 
   if (hit.osis.indexOf('.') === -1) {
-    // DOn't match books only
+    // Don't match books only
     return;
   }
 
@@ -154,8 +153,7 @@ const normalizeHits = (hit: Hit) => {
 }
 
 /**
- * Takes a osis and cleans it up
- *
+ * Takes an osis and cleans it up
  **/
 const normalizeRange = (osis: string) => {
   const match = osis.match(RANGE_DELIMITER_REGEX);
@@ -163,7 +161,7 @@ const normalizeRange = (osis: string) => {
     return osis;
   }
   const [delimiter] = match;
-  let ids = osis.split(delimiter).filter(i => !!i); // Remove false values ie (1Peter.1-) === [1Peter.1, '']
+  let ids = osis.split(delimiter).filter(i => !!i); // Remove empty values ie (1Peter.1-) === [1Peter.1, '']
   const startOsis = ids[0];
   const startOsisParts = startOsis.split('.')
   if (ids.length === 1) {
@@ -203,7 +201,7 @@ const normalizeOsis = (hit: Hit) => {
 
 const canRange = (hit: Hit) => {
   if (hit.osis[hit.osis.length - 1] === '.' ) {
-    // DOn't match books only
+    // Don't match books only
     return false;
   }
   if (hit.osis.indexOf('.') === -1) {
